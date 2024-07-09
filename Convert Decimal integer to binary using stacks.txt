@@ -1,0 +1,37 @@
+	/*Convert decimal interger to binary using stack*/
+	public static void stackImp()
+	{
+		 try (Scanner sc = new Scanner(System.in)) {
+	            int value = sc.nextInt();
+	            if (value < 0) {
+	                System.out.println("Please enter a non-negative integer.");
+	            } else {
+	                String convertedValue = convertDecimalToBinary(value);
+	                System.out.println("Binary value after conversion: " + convertedValue);
+	            }
+	        } catch (InputMismatchException e) {
+	            System.out.println("Invalid input. Please enter a non-negative integer.");
+	        } catch (Exception e) {
+	            System.out.println("An unexpected error occurred: " + e.getMessage());
+	        }
+	}
+
+	//method was declared as static so no need to create a constructor or object for it
+	
+	public static String convertDecimalToBinary(int value)
+	{
+		int remainder = 0;
+		Stack values =  new Stack();
+		while(value>0)
+		{
+			remainder = value%2;
+			values.push(remainder);
+			value = value/2;
+		}
+		StringBuilder binaryNumber = new StringBuilder();
+        while (!values.isEmpty()) {
+            binaryNumber.append(values.pop());
+        }
+        return binaryNumber.toString();
+	}
+	

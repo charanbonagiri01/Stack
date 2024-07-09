@@ -1,5 +1,3 @@
-package com.bwinparty.compliance.monitor.cron;
-
 public class Node {
 
 	int data;
